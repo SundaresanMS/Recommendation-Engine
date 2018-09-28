@@ -1,0 +1,57 @@
+
+"""
+
+Sarcasm is the Language of Internet..
+
+People are like kanye west meets Hulk when it comes to their rants on twitter..
+
+The level of sarcasm is dope.. 
+
+Some times the sarcasm is so subtle and there is no mention of Bazinga almost every time!! to know that it is sarcasm.. so some how i end up saying thanks!!..
+
+
+
+What can you analyse in sentiment analysis ?
+Whether the given text is given in positive context or a negative context?
+So How would you caputre the sentiment 
+
+
+"You are the whitest man.. i`ve seen on the surface of the earth"
+ sarcasm as a form of verbal irony that is intended to express contempt
+or ridicule. figurative nature of sarcasm makes it an often-quoted challenge for sentiment
+analysis 
+
+ Sarcasm has a negative implied sentiment, but may not have a negative surface
+sentiment.
+
+A sarcastic sentence may carry positive surface sentiment (for example, ‘Visiting dentists
+is so much fun!’)
+
+
+
+Master of Sarcasm --> Me standing where the arrow is pointing
+
+"""
+
+
+
+"""
+Understand the problem 
+Make a list of all possible methodologies that were used 
+Collect all possible sources of dataset that can be used to perform this project.
+
+
+Identify the steps that is needed prepare a standard corpus for detecting sarcasm
+Learn about the pros and cons of all the methodologies and their underlying principle
+
+
+
+Clean/Organize/Preproces transform the dataset
+Try the easiest methodology and document the model accuracy
+Scale up to more difficult models/methods and document the model accuracy
+Use the best achiving model/method and try to tweak its performance..
+
+Try out a totally new methodology on your own and document the accuracy
+
+"""
+
