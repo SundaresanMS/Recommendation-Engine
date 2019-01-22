@@ -48,120 +48,120 @@ tags = ratings[['userId','movieId','rating']].set_index('userId').join(tags,on=[
 # pdb.set_trace()
 
 
-# def user_profile_generation(tags):
-	# """
+def user_profile_generation(tags):
+	"""
 	
-	# Description
-	# -----------
+	Description
+	-----------
 	
-	# Creating user profiles for the entire user based on the ratings they have given for each movie.
+	Creating user profiles for the entire user based on the ratings they have given for each movie.
 	
-	# Parameters 
-	# ----------
-	# Tags file which contains the entire list of tags 
-	# tags	: Type - <DataFrame>
-	# <schema>
-		# 'userId', 'movieId', 'tag', 'timestamp'
-	
-	
-	
-	
-	
-	# Returns
-    # -------
-	# User Profile contains the entire user base - tag profile
-	# User Profile : Type - <DataFrame> 
-	# <schema>
-		# 'userId', 'user_tags', 'number_of_tags', 'no_of_movies'
+	Parameters 
+	----------
+	Tags file which contains the entire list of tags 
+	tags	: Type - <DataFrame>
+	<schema>
+		'userId', 'movieId', 'tag', 'timestamp'
 	
 	
 	
 	
 	
+	Returns
+    -------
+	User Profile contains the entire user base - tag profile
+	User Profile : Type - <DataFrame> 
+	<schema>
+		'userId', 'user_tags', 'number_of_tags', 'no_of_movies'
 	
-	# """
-	# user_profile_dict ={}
-	# user_df = pd.DataFrame()
-	# user_df['userId'] = tags['userId'].unique()
-	# tag_profile_dict = {}
-	# for id in user_df['userId']:
-		# tag_profile_counts = tags[tags['userId']==id]['tag'].value_counts()
-		  # = list(tag_profile_counts.index)
-		# tag_profile_dict = tag_profile_counts.to_dict()
-		# pdb.set_trace()
+	
+	
+	
+	
+	
+	"""
+	user_profile_dict ={}
+	user_df = pd.DataFrame()
+	user_df['userId'] = tags['userId'].unique()
+	tag_profile_dict = {}
+	for id in user_df['userId']:
+		tag_profile_counts = tags[tags['userId']==id]['tag'].value_counts()
+		  = list(tag_profile_counts.index)
+		tag_profile_dict = tag_profile_counts.to_dict()
+		pdb.set_trace()
 		
-		# print (id, " --- > ",tag_profile)
-		# # print (list(tag_profile))
-		# user_profile_dict[id] = tag_profile #list()
+		print (id, " --- > ",tag_profile)
+		# print (list(tag_profile))
+		user_profile_dict[id] = tag_profile #list()
 	
-	# keys = list(user_profile_dict.keys())
-	# values =list(user_profile_dict.values())
+	keys = list(user_profile_dict.keys())
+	values =list(user_profile_dict.values())
 
-	# user_profile = pd.DataFrame()
-	# user_profile['userId'] = keys
-	# user_profile['user_tags'] =values
-	# user_profile['number_of_tags'] =tags['userId'].value_counts().tolist()
-	# user_profile['no_of_movies'] = tags[['userId','movieId']].drop_duplicates().groupby('userId').count()['movieId'].tolist()
-	# # pdb.set_trace()
+	user_profile = pd.DataFrame()
+	user_profile['userId'] = keys
+	user_profile['user_tags'] =values
+	user_profile['number_of_tags'] =tags['userId'].value_counts().tolist()
+	user_profile['no_of_movies'] = tags[['userId','movieId']].drop_duplicates().groupby('userId').count()['movieId'].tolist()
+	# pdb.set_trace()
 	
 
-	# """
+	"""
 
-	# Output
-	# ------
-	   # userId                                          user_tags   number of tags	no_of_movies
-	# 0       2  [funny, Highly quotable, will ferrell, Boxing ...            1507			   3
-	# 1       7                                     [way too long]             432			   1
-	# 2      18  [Al Pacino, gangster, mafia, Mafia, holocaust,...             370			   7
-	# 3      21        [romantic comedy, wedding, painter, bloody]             323			   3
-	# 4      49                  [black hole, sci-fi, time-travel]             280			   1
-
-
-
-	# """
-
-
-	
-	
-	
-	
-	
-	# return user_profile
-	
-	
-	
-# def user_profile_transformation(user_profile):
-	
-	# """
-	# Description
-	# -----------
-	# Creating user profiles tag vectors using Tf-idf Vectorization.
-	# tag vectors - array of tag weights
-	
-	# Parameters
-	# ----------
-	# User_Profile :	Type - <DataFrame>
-		# <schema> 'userId', 'user_tags',  'number_of_tags', 'no_of_movies'
-
-	
-	# Returns
-    # -------
-	# User_Profile_Transformation	:	Type - <DataFrame>
-		# <schema>  'userId', 'user_tag_vectors'
-	
-	# """
-	# user_profile
-	# print (user_profile)
-	
+	Output
+	------
+	   userId                                          user_tags   number of tags	no_of_movies
+	0       2  [funny, Highly quotable, will ferrell, Boxing ...            1507			   3
+	1       7                                     [way too long]             432			   1
+	2      18  [Al Pacino, gangster, mafia, Mafia, holocaust,...             370			   7
+	3      21        [romantic comedy, wedding, painter, bloody]             323			   3
+	4      49                  [black hole, sci-fi, time-travel]             280			   1
 
 
 
+	"""
 
 
 	
 	
-# user_profile = user_profile_generation(tags)
-# user_profile_transformation(user_profile)
-# # print (user_profile.head())     
+	
+	
+	
+	return user_profile
+	
+	
+	
+def user_profile_transformation(user_profile):
+	
+	"""
+	Description
+	-----------
+	Creating user profiles tag vectors using Tf-idf Vectorization.
+	tag vectors - array of tag weights
+	
+	Parameters
+	----------
+	User_Profile :	Type - <DataFrame>
+		<schema> 'userId', 'user_tags',  'number_of_tags', 'no_of_movies'
+
+	
+	Returns
+    -------
+	User_Profile_Transformation	:	Type - <DataFrame>
+		<schema>  'userId', 'user_tag_vectors'
+	
+	"""
+	user_profile
+	print (user_profile)
+	
+
+
+
+
+
+	
+	
+user_profile = user_profile_generation(tags)
+user_profile_transformation(user_profile)
+print (user_profile.head())     
 	
 print (tags.head())
